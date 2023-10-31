@@ -1,4 +1,91 @@
-<div class="container">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 0.5
+    }
+    100% {
+        opacity: 1
+    }
+}
+@keyframes scaleInAndBlur {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(60);
+        text-shadow: 0px 0px 3px red;
+    }
+    20% {
+        opacity: 1;
+        -webkit-transform: scale(30);
+        text-shadow: 0px 0px 3px red;
+    }
+    40% {
+        opacity: 1;
+        -webkit-transform: scale(15);
+        text-shadow: 0px 0px 3px red;
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale(6);
+        text-shadow: 0px 0px 3px red;
+    }
+    80% {
+        opacity: 1;
+        -webkit-transform: scale(6);
+        text-shadow: 0px 0px 12px red;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(6);
+        text-shadow: 0px 0px 2px red;
+    }
+}
+body {
+  background-color: #000 !important;
+}
+span {
+    border-radius: 50%;
+    color: white;
+    font-size: 10px;
+    background-color: blue;
+    opacity: 0;
+}
+.spanAnim {
+    animation: fadeIn .3s linear forwards normal;
+    -webkit-animation: fadeIn .3s linear forwards normal;
+}
+.spanAnimDelay(@n, @delay, @i: 1) when (@i <= @n) {
+    .l@{i} {
+        .spanAnim;
+        animation-delay: (1s * @delay);
+        -webkit-animation-delay: (1s * @delay);
+    }
+    .spanAnimDelay(@n, @delay + 0.05, @i + 1);
+}
+.spanAnimDelay(136,0.05);
+.name {
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    color: #FDFF00;
+    opacity: 0;
+    text-shadow: 0px 0px 3px red;
+    animation: scaleInAndBlur 5s linear forwards normal;
+    -webkit-animation: scaleInAndBlur 5s linear forwards normal;
+    animation-delay: 6.85s;
+    -webkit-animation-delay: 6.85s;
+}
+.back {
+    z-index: 0;
+}
+.front {
+    z-index: 1;
+    position: relative;
+}
+</style>
+            <div class="container">
             <br><br>
             <div class="row back">
                 <div class="col-md-1">
